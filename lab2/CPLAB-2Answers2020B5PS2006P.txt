@@ -1,0 +1,127 @@
+Q1.
+Use command cd ~ followed by pwd or echo $HOME or echo $USER
+aryaman@Aryaman:/mnt/c/Users/asus/Desktop/clang$ cd ~
+aryaman@Aryaman:~$ pwd
+/home/aryaman
+aryaman@Aryaman:~$ echo $HOME
+/home/aryaman
+aryaman@Aryaman:~$ echo $USER
+aryaman
+Q2.
+home is the parent directory of the home directory(usually the user name)
+Use cd .. followed by pwd when in home
+aryaman@Aryaman:~$ cd ..
+aryaman@Aryaman:/home$ pwd
+/home
+Q3.
+aryaman@Aryaman:~$ mkdir dir1
+aryaman@Aryaman:~$ cd dir1/
+aryaman@Aryaman:~/dir1$ cat > file1
+aryaman@Aryaman:~/dir1$ touch file2 file3
+aryaman@Aryaman:~/dir1$ ls
+file1  file2  file3
+aryaman@Aryaman:~/dir1$ mkdir dir1-1
+aryaman@Aryaman:~/dir1$ ls
+dir1-1  file1  file2  file3
+Q4.
+aryaman@Aryaman:~/dir1$ cd /home
+aryaman@Aryaman:/home$ tree
+.
+└── aryaman
+    └── dir1
+        ├── dir1-1
+        ├── file1
+        ├── file2
+        └── file3
+
+3 directories, 3 files
+Q5.
+Note:Removed easily since it is empty
+aryaman@Aryaman:~/dir1$ ls
+dir1-1  file1  file2  file3
+aryaman@Aryaman:~/dir1$ rmdir dir1-1
+aryaman@Aryaman:~/dir1$ ls
+file1  file2  file3
+Q6.
+Note:This directory has files inside it and is therefore removed forcibly using the -r
+aryaman@Aryaman:~/dir1$ ls
+file1  file2  file3
+aryaman@Aryaman:~/dir1$ cd ..
+aryaman@Aryaman:~$ ls
+dir1
+aryaman@Aryaman:~$ rm -r dir1
+aryaman@Aryaman:~$ ls
+aryaman@Aryaman:~$
+Q7.
+Note:I did this before question 5 and 6
+aryaman@Aryaman:~/dir1$ ls
+dir1-1  file1  file2  file3
+aryaman@Aryaman:~/dir1$ ls -l|cat > dirfile
+aryaman@Aryaman:~/dir1$ ls
+dir1-1  dirfile  file1  file2  file3
+aryaman@Aryaman:~/dir1$ cat dirfile
+total 0
+drwxr-xr-x 1 aryaman aryaman 4096 Mar 25 17:18 dir1-1
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:24 dirfile
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file1
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file2
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file3
+Q8.
+aryaman@Aryaman:~/dir1$ cat dirfile
+total 0
+drwxr-xr-x 1 aryaman aryaman 4096 Mar 25 17:18 dir1-1
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:24 dirfile
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file1
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file2
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file3
+Q9.
+aryaman@Aryaman:~$ echo $USER
+aryaman
+For creating this file use vi editor, then inside, press esc, use :.!whoami then :wq then enter
+aryaman@Aryaman:~$ vi userlist
+aryaman@Aryaman:~$ cat userlist
+aryaman
+Q10.
+aryaman@Aryaman:~$ cat dirfile|cat >> file1
+aryaman@Aryaman:~$ cat userlist |cat >> file1
+aryaman@Aryaman:~$ cat file1
+total 0
+drwxr-xr-x 1 aryaman aryaman 4096 Mar 25 17:18 dir1-1
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:24 dirfile
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file1
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file2
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file3
+aryaman
+Q11.
+aryaman@Aryaman:~$ wc file1
+  7  48 284 file1
+aryaman@Aryaman:~$ wc -l file1
+7 file1
+aryaman@Aryaman:~$ wc -w file1
+48 file1
+aryaman@Aryaman:~$ wc -c file1
+284 file1
+Q12.
+aryaman@Aryaman:~$ cp file1 file2
+aryaman@Aryaman:~$ cat file2
+total 0
+drwxr-xr-x 1 aryaman aryaman 4096 Mar 25 17:18 dir1-1
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:24 dirfile
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file1
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file2
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file3
+aryaman
+Q13.
+aryaman@Aryaman:~$ cat >> file2
+This is file2.
+And I am using Linux!
+aryaman@Aryaman:~$ cat file2
+total 0
+drwxr-xr-x 1 aryaman aryaman 4096 Mar 25 17:18 dir1-1
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:24 dirfile
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file1
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file2
+-rw-r--r-- 1 aryaman aryaman    0 Mar 25 17:16 file3
+aryaman
+This is file2.
+And I am using Linux!

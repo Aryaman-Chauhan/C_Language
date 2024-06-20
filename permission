@@ -1,0 +1,8 @@
+--- 0 no permission
+--x 1 execute
+-w- 2 write
+-wx 3 write and execute
+r-- 4 read
+r-x 5 read and execute
+rw- 6 read and write
+rwx 7 read write execute
